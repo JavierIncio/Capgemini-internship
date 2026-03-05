@@ -10,10 +10,20 @@
   nav a {
     color: #fff;
     text-decoration: none;
+    padding: 10px 5px;
+  }
+
+  nav a.active {
+    background-color: #fff;
+    padding: 10px 5px;
+    color: #212121;
+    border-radius: 5px;
   }
 </style>
 
 <nav>
-  <a routerLink="/">Contador</a>
-  <a routerLink="/hero">Hero</a>
+  <a [routerLink]="['/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Contador</a>
+  <a [routerLink]="['/hero']" [routerLinkActive]="'active'">Hero</a>
+  <a [routerLink]="['/dragonball']" [routerLinkActive]="'active'">Dragonball</a>
+  <a routerLink="/dragonball-super" routerLinkActive="active">Dragonball Super</a>
 </nav>

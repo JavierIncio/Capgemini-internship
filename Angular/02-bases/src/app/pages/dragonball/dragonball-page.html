@@ -1,0 +1,33 @@
+<h1>DragonBall Page</h1>
+<hr>
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Agregar: {{name()}}</h3>
+    <!-- <input type="text" class="form-control" placeholder="Nombre" [value]="name()"
+    (change)="name.set($event.target.value)"> -->
+    <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (input)="name.set(txtName.value)"
+      #txtName>
+    <h3>{{power()}}</h3>
+    <input type="number" class="form-control mt-2" placeholder="Poder" [value]="power()"
+      (change)="power.set(txtPower.valueAsNumber)" #txtPower>
+
+    <button class="mt-2 btn btn-primary" (click)="addCharacter()">Agregar</button>
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h3>Listado:</h3>
+    <ul>
+      @for(char of characters(); track char.id; let idx = $index, c = $count){
+      @if(char.power > 100){
+      <li>
+        <span>{{idx +1}}/{{c}} - {{char.name}}</span>
+        <strong [class.text-danger]="char.power > 500" [class.text-primary]="char.power <= 500">
+          ({{char.power}})</strong>
+        <!-- [ngClass]="powerClasses()" -->
+      </li>
+      }
+      }
+    </ul>
+  </div>
+</section>
