@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Tag(name = "Author", description = "API of Author")
@@ -26,6 +27,15 @@ public class AuthorController {
     public AuthorController(AuthorService authorService, ModelMapper mapper) {
         this.authorService = authorService;
         this.mapper = mapper;
+    }
+
+    @Operation(summary = "Find", description = "Method that return a list of Authors")
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public List<AuthorDTO> findAll() {
+
+        List<Author> authors = this.authorService.findAll();
+
+        return authors.stream().map(e -> mapper.map(e, AuthorDTO.class)).collect(Collectors.toList());
     }
 
     @Operation(summary = "Find Page", description = "Method that return a page of Authors")

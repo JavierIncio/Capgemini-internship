@@ -19,6 +19,11 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    @Override
+    public Category get(Long id) {
+        return this.categoryRepository.findById(id).orElse(null);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -37,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (id == null) {
             category = new Category();
         } else {
-            category = this.categoryRepository.findById(id).orElse(null);
+            category = this.get(id);
         }
 
         category.setName(dto.getName());
@@ -50,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public void delete(Long id) throws Exception {
-        if (this.categoryRepository.findById(id).orElse(null) == null) {
+        if (this.get(id) == null) {
             throw new Exception("Not exists");
         }
         this.categoryRepository.deleteById(id);
