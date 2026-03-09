@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './author-list.html',
   styleUrl: './author-list.scss',
 })
-export class AuthorList implements OnInit {
+export default class AuthorList implements OnInit {
   pageNumber: number = 0;
   pageSize: number = 5;
   totalElements: number = 0;

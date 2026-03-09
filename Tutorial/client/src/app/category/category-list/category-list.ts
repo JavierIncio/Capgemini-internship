@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Category } from '../model/category';
+import { Category } from '../model/category.class';
 import { CategoryService } from '../category-service';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryEdit } from '../category-edit/category-edit';
@@ -14,7 +14,7 @@ import { DialogConfirmation } from '../../core/dialog-confirmation/dialog-confir
   templateUrl: './category-list.html',
   styleUrl: './category-list.scss',
 })
-export class CategoryList implements OnInit {
+export default class CategoryList implements OnInit {
   dataSource = new MatTableDataSource<Category>();
   displayedColumns: string[] = ['id', 'name', 'action'];
 
