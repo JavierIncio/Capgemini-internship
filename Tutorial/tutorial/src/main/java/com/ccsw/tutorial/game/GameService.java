@@ -10,4 +10,5 @@ public interface GameService {
 
     void save(Long id, GameDTO dto);
 
+    Game get(Long gameId);
 }

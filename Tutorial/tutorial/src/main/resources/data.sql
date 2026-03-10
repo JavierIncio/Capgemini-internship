@@ -21,3 +21,11 @@ INSERT INTO client(name) VALUES ('Ana González');
 INSERT INTO client(name) VALUES ('Marcos Díaz');
 INSERT INTO client(name) VALUES ('Lara Sánchez');
 INSERT INTO client(name) VALUES ('Borja Méndez');
+
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (1, 2, '2026-03-01', '2026-03-10');
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (1, 3, '2026-03-03', '2026-03-10');
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (2, 3, '2026-02-15', '2026-02-22');
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (3, 4, '2026-02-18', '2026-02-25');
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (3, 1, '2026-03-05', '2026-03-16');
+INSERT INTO loan (client_id, game_id, start_date, end_date) VALUES (5, 2, '2026-03-14', '2026-03-20');
+
