@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Category } from './model/category.class';
 
 @Injectable({
@@ -8,7 +8,6 @@ import { Category } from './model/category.class';
 })
 export class CategoryService {
   private http = inject(HttpClient);
-
   private baseUrl = 'http://localhost:8080/category';
 
   getCategories(): Observable<Category[]> {

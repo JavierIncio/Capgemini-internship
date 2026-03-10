@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -24,10 +24,8 @@ export default class AuthorList implements OnInit {
   dataSource = new MatTableDataSource<Author>();
   displayedColumns: string[] = ['id', 'name', 'nationality', 'action'];
 
-  constructor(
-    private authorService: AuthorService,
-    public dialog: MatDialog,
-  ) {}
+  private authorService = inject(AuthorService);
+  public dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.loadPage();
