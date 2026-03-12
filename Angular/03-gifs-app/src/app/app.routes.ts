@@ -3,9 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'dashboard',
-    loadComponent: () =>
-      // import('./gifs/pages/dashboard-page/dashboard-page').then((c) => c.DashboardPage),
-      import('./gifs/pages/dashboard-page/dashboard-page'), // export default
+    loadComponent: () => import('./gifs/pages/dashboard-page/dashboard-page'),
     children: [
       {
         path: 'trending',
@@ -14,6 +12,10 @@ export const routes: Routes = [
       {
         path: 'search',
         loadComponent: () => import('./gifs/pages/search-page/search-page'),
+      },
+      {
+        path: 'history/:query',
+        loadComponent: () => import('./gifs/pages/gif-history/gif-history'),
       },
       {
         path: '**',
