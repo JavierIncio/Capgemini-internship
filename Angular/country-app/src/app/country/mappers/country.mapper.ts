@@ -10,7 +10,7 @@ export class CountryMapper {
       name: restCountry.translations['spa'].common ?? 'Sin traducción al español',
       region: restCountry.region,
       subregion: restCountry.subregion,
-      capital: restCountry.capital.join(', '),
+      capital: restCountry.capital?.join(','),
       population: restCountry.population,
     };
   }
