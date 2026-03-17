@@ -1,2 +1,11 @@
-<country-search-input placeholder="Buscar por capital" />
-<country-list />
+<country-search-input
+  placeholder="Buscar por capital"
+  (value)="query.set($event)"
+/>
+
+@if (countryResource.error()){
+<h3 class="alert alert-danger mt-5">{{countryResource.error()}}</h3>
+}
+@if(countryResource.hasValue()) {
+<country-list [countries]="countryResource.value()!" />
+}
